@@ -19,11 +19,30 @@ git config --global user.email "email명"
 git config --list
 
 # git 프로젝트 생성방법 2가지                                  1.회사에 처음 입사했을떄 -> clone
-# 1. 원격에서 repo생성후 clone                                2. 내 개인 프로젝트를 로컬에서 진행하다가 업로드 하는 경우
+# 1. 원격에서 repo생성후 clone  <-가장 편함                              2. 내 개인 프로젝트를 로컬에서 진행하다가 업로드 하는 경우
 # 2. 로컬에 이미 만들어진 프로젝트 github에 없로드               2-1) github repo 생성 -> clone
 # 2-1) .git폴더를 생성                                                          2-2) github repo 생성 -> 내 로컬의 프로젝트를 github upload
 git init
 # 2-2) 원격지 주소를 추가
 git remote add origin 원격지주소
 
-# .git 1) 원격이 어딘지 2) commit 이력
+# .git 1) 원격이 어딘지 2) commit 이력 <= .git 폴더가 있는 폴더에서 명령어 사용해야함
+
+# 다른 repo에서 clone을 받아 나의 repo로 옮기기
+# 1. 커밋이력 그대로 가져가기 (.git 지우면 안됨)
+git clone 레포주소
+git remote set-url origin 내레포주소 #원격지 주소변경
+git push origin main
+
+# 2. 커밋이력없이 가져가기
+# .git 폴더 삭제
+git init
+git remote add origin 원격지주소  #신규추가
+git checkout -b main #main브랜치 생성 및 변경
+# git add, git commit, git push 작업 진행
+
+# .gitignore은 git 추적목록에서 제외 대상 나열
+# 1. 빌드파일 2. 중요파일 안올림
+# 주로 빌드된 파일 또는 중요 암호등이 담ㄱ긴 파일을 제외
+# 만약 이미 git에서 추적되고 있는 파일을 제외하려면 캐시 삭제 필요
+git rm -r --cached .
