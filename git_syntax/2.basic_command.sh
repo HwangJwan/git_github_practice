@@ -35,9 +35,12 @@ git diff 브랜치1 브랜치2
 
 # 취소상황
 # workingdirectory -> 그냥 취소
-
 # staging area -> UI
-
 # local repo -> commitID발생 -> commitID취소
-
+# 가장 최신의 커밋 취소
+git reset head~1
+git reset head^
 # origin repo -> revert commit
+# 이미 push commit사항을 되돌리는 새로운 commit 생성(기존의 커밋 지워지는 것 아님!)
+git revert 커밋ID 
+
