@@ -23,3 +23,21 @@ git log --all
 git push origin 브랜치명
 # 충돌발생시 충돌무시하고, 로컬기준의 코드를 원격에 덮어쓰기(절대 사용하지 말 것)
 git push origin 브랜치면 --force
+
+# pull은 원격사항을 local로  내려받는 것(fetch-merge)
+git pull origin main
+# fetch는 변경사항을 local로 가져오되, 병합은 하지 않는 것
+gt fetch origin main
+
+# commitID간 또는 브랜치 사이의 비교 명령어
+git diff commitID1 commitID2
+git diff 브랜치1 브랜치2
+
+# 취소상황
+# workingdirectory -> 그냥 취소
+
+# staging area -> UI
+
+# local repo -> commitID발생 -> commitID취소
+
+# origin repo -> revert commit
